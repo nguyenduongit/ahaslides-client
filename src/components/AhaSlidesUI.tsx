@@ -22,11 +22,10 @@ function AhaSlidesUI({ accessCode }: AhaSlidesUIProps) {
   const { data, isLoading, error, executeFetch } = useAhaslides(addLog);
 
   useEffect(() => {
-    // Chỉ fetch khi có accessCode và chưa có dữ liệu
     if (accessCode) {
       executeFetch(accessCode);
     }
-  }, [accessCode]); // Bỏ executeFetch khỏi dependency array để tránh gọi lại không cần thiết
+  }, [accessCode]);
 
   const presentationData = data?.presentation;
   const answerOptions: AnswerOption[] = data?.answers?.rows || [];
@@ -66,15 +65,17 @@ function AhaSlidesUI({ accessCode }: AhaSlidesUIProps) {
 
       {/* --- PHẦN AUTO REACTION --- */}
       {!isLoading && presentationData && availableReactions.length > 0 && (
+        // --- SỬA LỖI TẠI ĐÂY ---
         <AutoReaction
+          accessCode={presentationData.uniqueAccessCode} // <-- THUỘC TÍNH BỊ THIẾU ĐÃ ĐƯỢC THÊM
           presentationId={presentationData.id}
           slideId={presentationData.activeSlide}
           presentationVersion={presentationData.version}
           availableReactions={availableReactions}
         />
+        // --- KẾT THÚC SỬA LỖI ---
       )}
 
-      {/* --- TRẠNG THÁI CHỜ --- */}
       {!isLoading && !data && !error && (
         <p className={styles.status}>
           Nhập URL của AhaSlides vào ô ở trên và nhấn "Bắt đầu" để tải dữ liệu.
