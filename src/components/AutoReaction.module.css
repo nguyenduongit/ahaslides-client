@@ -1,0 +1,76 @@
+/* src/components/AutoReaction.module.css */
+.reactionContainer {
+  border: 1px dashed var(--border-color);
+  padding: 1rem 1.5rem;
+}
+
+.reactionContainer h3 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.fieldLabel {
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+  display: block;
+  text-transform: uppercase;
+}
+
+.reactionSelector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hiddenRadio {
+  display: none;
+}
+
+.radioLabel {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #222;
+  transition: all 0.2s ease;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radioLabel:hover {
+  border-color: var(--primary-color);
+}
+
+.radioLabel.selected {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: scale(1.15);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+.emoji {
+  font-size: 1.8rem;
+  transition: transform 0.2s;
+}
+
+.radioLabel.selected .emoji {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.controlGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.submitButton {
+  padding: 12px;
+  font-size: 1rem;
+}

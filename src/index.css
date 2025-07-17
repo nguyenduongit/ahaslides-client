@@ -1,0 +1,136 @@
+/* src/index.css */
+:root {
+  --background-color: #0a0a0a;
+  --text-color: #00ff41; /* Green neon text */
+  --primary-color: #00ff41;
+  --container-bg: #1a1a1a;
+  --border-color: #00ff41;
+  --input-bg: #111;
+  --input-text: #00ff41;
+  --button-bg: transparent;
+  --button-hover-bg: #00ff41;
+  --button-hover-text: #000;
+  --error-color: #ff4141;
+  --error-bg: rgba(255, 65, 65, 0.1);
+
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+}
+
+/* --- THAY ĐỔI ĐỂ CĂN GIỮA --- */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem; /* Thêm padding cho màn hình nhỏ */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-image: radial-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+main {
+  width: 100%;
+  max-width: 500px; /* Điều chỉnh lại độ rộng tối đa */
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: rgba(10, 10, 10, 0.8);
+  box-shadow: 0 0 15px var(--border-color), inset 0 0 10px rgba(0, 255, 65, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+input,
+button {
+  font-family: inherit;
+  font-size: 1em;
+  border-radius: 0;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+input {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  padding: 0.8em 1.2em;
+  caret-color: var(--primary-color);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--primary-color);
+  padding: 0.8em 1.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  box-shadow: 0 0 15px var(--primary-color);
+  text-shadow: none;
+}
+
+button:disabled {
+  border-color: #555;
+  color: #555;
+  cursor: not-allowed;
+  text-shadow: none;
+}
+
+.url-input-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px dashed var(--border-color);
+}
+.url-input-container h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.url-input-container form {
+  display: flex;
+  gap: 1rem;
+}
+.url-input-container input {
+  flex-grow: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  main {
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+    background-color: transparent;
+  }
+  .url-input-container form {
+    flex-direction: column;
+  }
+}

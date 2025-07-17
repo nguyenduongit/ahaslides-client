@@ -1,0 +1,37 @@
+/* src/components/AhaSlidesUI.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--container-bg);
+}
+
+.error {
+  color: var(--error-color);
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-color);
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.status::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
